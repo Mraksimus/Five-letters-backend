@@ -4,9 +4,8 @@ import dev.mraksimus.compat.SerialUUID
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Game(
+data class Report(
     val id: SerialUUID,
     val userId: SerialUUID,
-    val lives: Short,
-    val score: Int
+    val wordId: SerialUUID
 )

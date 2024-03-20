@@ -6,6 +6,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class GameSession(
+    val id: SerialUUID? = null,
     val gameId: SerialUUID,
     val wordId: SerialUUID,
     val session: List<Session>

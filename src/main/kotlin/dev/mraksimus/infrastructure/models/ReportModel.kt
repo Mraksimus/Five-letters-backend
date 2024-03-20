@@ -2,17 +2,13 @@ package dev.mraksimus.infrastructure.models
 
 import dev.mraksimus.infrastructure.dto.GameSession
 import dev.mraksimus.plugins.json
-import kotlinx.serialization.json.Json
-import org.jetbrains.exposed.dao.id.IdTable
 import org.jetbrains.exposed.dao.id.UUIDTable
 import org.jetbrains.exposed.sql.ReferenceOption
 import org.jetbrains.exposed.sql.json.jsonb
-import java.util.*
 
-object GameSessionModel : UUIDTable("game_sessions") {
+object ReportModel : UUIDTable("reports") {
 
-    val gameId = reference("game_id", GameModel, onDelete = ReferenceOption.CASCADE)
+    val userId = reference("user_id", UserModel, onDelete = ReferenceOption.CASCADE)
     val wordId = reference("word_id", WordModel, onDelete = ReferenceOption.CASCADE)
-    val session = jsonb<GameSession.Session>("session", json)
 
 }
