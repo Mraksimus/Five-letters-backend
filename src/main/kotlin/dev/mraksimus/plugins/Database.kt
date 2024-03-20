@@ -3,6 +3,10 @@ package dev.mraksimus.plugins
 import io.ktor.server.application.*
 import kotlinx.coroutines.Dispatchers
 import dev.mraksimus.config.database.DatabaseConfig
+import dev.mraksimus.infrastructure.models.GameModel
+import dev.mraksimus.infrastructure.models.GameSessionModel
+import dev.mraksimus.infrastructure.models.UserModel
+import dev.mraksimus.infrastructure.models.WordModel
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.Transaction
@@ -21,7 +25,12 @@ fun Application.configureDatabase() {
     )
 
     transaction {
-        SchemaUtils.createMissingTablesAndColumns()
+        SchemaUtils.createMissingTablesAndColumns(
+            WordModel,
+            UserModel,
+            GameModel,
+            GameSessionModel
+        )
     }
 
 }
