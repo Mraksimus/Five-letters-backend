@@ -9,12 +9,15 @@ data class GameSession(
     val id: SerialUUID? = null,
     val gameId: SerialUUID,
     val wordId: SerialUUID,
-    val session: List<Session>
+    val words: List<Word>,
+    val attempts: Short,
+    val createdAt: LocalDateTime,
+    val type: Type
 ) {
 
     @Serializable
-    data class Session(
-        val word: List<Letter>,
+    data class Word(
+        val letters: List<Letter>,
         val createdAt: LocalDateTime
     ) {
 
@@ -30,6 +33,11 @@ data class GameSession(
             INCORRECT
         }
 
+    }
+
+    enum class Type {
+        DEFAULT,
+        SUPER
     }
 
 }
