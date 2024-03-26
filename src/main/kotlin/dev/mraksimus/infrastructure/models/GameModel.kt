@@ -15,6 +15,6 @@ object GameModel : UUIDTable("games") {
     val userId = reference("user_id", UserModel, onDelete = ReferenceOption.CASCADE)
     val score = integer("score")
     val lives = short("lives")
-    val state = jsonb<Game.State>("session", json)
+    val state = enumerationByName<Game.State>("state", 7)
 
 }

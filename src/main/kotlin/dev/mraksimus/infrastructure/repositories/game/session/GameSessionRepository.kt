@@ -13,6 +13,6 @@ interface GameSessionRepository {
         dto: GameSession
     ): Int
 
-    fun findLast(gameId: SerialUUID): GameSession
+    fun findLast(gameId: SerialUUID): GameSession?
 
 }

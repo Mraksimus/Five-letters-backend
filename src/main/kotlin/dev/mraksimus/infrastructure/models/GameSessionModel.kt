@@ -17,6 +17,6 @@ object GameSessionModel : UUIDTable("game_sessions") {
     val words = jsonb<GameSession.Word>("words", json)
     val attempts = short("attempts")
     val createdAt = datetime("created_at")
-    val type = jsonb<GameSession.Type>("words", json)
+    val type = enumerationByName<GameSession.Type>("type", 6)
 
 }
